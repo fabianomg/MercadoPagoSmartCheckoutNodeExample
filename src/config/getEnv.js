@@ -16,7 +16,7 @@ module.exports = () => {
     const envFile = dotEnv.config({
         path : `${path.resolve(process.cwd(), '.env', args.env)}`
     });
-
+console.log(envFile)
     if(envFile.error){
         switch(envFile.error.code){
             case 'ENOENT':
