@@ -14,7 +14,7 @@ const paymentsRoute = require('./src/routes/paymentsRoute');
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //For render views
@@ -23,9 +23,9 @@ app.set('views', path.join(__dirname, './src/views'));
 app.set("view engine", "ejs");
 
 //Payments route
-app.use('/payments',paymentsRoute);
+app.use('/payments', paymentsRoute);
 
-app.listen(process.env.API_PORT, function(err){
-    if(err) console.error(err);
-    console.log(`API INICIADA NA PORTA ${process.env.API_PORT}`) 
+app.listen(process.env.API_PORT || 3333, function (err) {
+    if (err) console.error(err);
+    console.log(`API INICIADA NA PORTA ${process.env.API_PORT}`)
 });
